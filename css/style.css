@@ -1,9 +1,12 @@
 /* Root variables for consistent theming */
 :root {
     --background-color: #F5F2EB;
-    --text-color: #342b2a;
-    --accent-color: #968a63;
+    --text-color: #675237;
+    --accent-color: #a8924a;
     --nav-bg-color: rgba(245, 242, 235, 0.95);
+    --card-bg-color: #4b5f73;
+    --spacing-unit: 2rem;
+    --section-spacing: 8rem;
 }
 
 /* Reset and base styles */
@@ -14,17 +17,48 @@
 }
 
 body, html {
-    font-family: 'Georgia', serif; /* Default body font for readability */
+    font-family: 'Georgia', serif;
     background: var(--background-color);
     color: var(--text-color);
-    font-size: 0.95rem; /* Base size */
-    line-height: 1.6; /* Airy spacing like a book */
+    font-size: 0.95rem;
+    line-height: 1.6;
     scroll-behavior: smooth;
     overflow-x: hidden;
+    letter-spacing: 0.05rem;
+    cursor: url("../img/cursor.png") 16 16, auto;   
 }
 
-.about-content {
-    min-height: 100vh;
+/*Custom Pointer Styles*/
+a, button, [role="button"] {
+    cursor: url("../img/pointer.png") 16 16, pointer; /* Custom pointer for clickable elements */
+}
+
+a:hover, button:hover, [role="button"]:hover {
+    cursor: url("../img/pointer.png") 16 16, pointer; /* Ensure custom pointer on hover */
+}
+
+
+/* Typography */
+h1, h2, h3, h4, h5 {
+    font-family: 'Lora', serif;
+    color: var(--text-color);
+    font-weight: 400;
+    margin-bottom: var(--spacing-unit);
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.25rem; }
+h4 { font-size: 1.1rem; }
+h5 { font-size: 1rem; }
+
+p {
+    font-family: 'Georgia', serif;
+    font-size: 0.95rem;
+    margin-bottom: var(--spacing-unit);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Header and Navigation */
@@ -38,7 +72,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 3rem 6rem;
+    padding: 2rem 4rem;
     z-index: 1000;
 }
 
@@ -46,9 +80,8 @@ header {
     font-family: 'Lora', serif;
     font-size: 1.75rem;
     color: var(--text-color);
-    transition: color 0.8s ease;
     text-decoration: none;
-    font-weight: 400;
+    transition: color 0.3s ease;
 }
 
 .logo a:hover {
@@ -61,16 +94,15 @@ header {
 }
 
 .nav-link {
-    color: var(--text-color);
     font-family: 'Lora', serif;
-    font-size: 1.1rem;
+    font-size: 1rem;
+    color: var(--text-color);
     text-decoration: none;
     padding: 0.5rem;
     transition: color 0.3s ease;
-    font-weight: 400;
 }
 
-.nav-link:hover {
+.nav-link:hover, .nav-link:active {
     color: var(--accent-color);
 }
 
@@ -90,7 +122,7 @@ header {
 .hamburger span {
     width: 100%;
     height: 3px;
-    background: #000000;
+    background: var(--text-color);
     transition: all 0.3s ease;
 }
 
@@ -106,45 +138,59 @@ header {
     transform: rotate(-45deg) translate(7px, -7px);
 }
 
-/* Intro Section */
-#intro {
-    margin-top: 5rem;
-    height: 80vh;
+/* Section Styles */
+section {
+    margin: var(--section-spacing) 0;
+    padding: var(--spacing-unit) 2rem;
 }
 
-.hero {
+.section-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    padding: var(--spacing-unit);
+}
+
+/* Intro and World Sections */
+#intro {
+    height: 65vh;
+    margin-top: 5rem;
+}
+
+#world {
+    height: 100vh;
+    margin-top: 10rem;
+}
+
+.hero, .world {
     width: 100%;
     height: 100%;
     position: relative;
 }
 
-.hero-text {
+.hero-text, .world-text {
     position: absolute;
     top: 50%;
     left: 50%;
+    width: 100%;
     transform: translate(-50%, -50%);
+}
+
+.hero-text{
+    top:70%;
+}
+
+.hero-text h1, .world-text h2{
     text-align: center;
 }
 
-.hero-text h1 {
-    font-family: 'Lora', serif;
-    font-size: 2.5rem; /* Adjusted for balance */
-    font-weight: 400;
-    margin-bottom: 0.75rem;
-}
+.hero-text p, .world-text p, .mystory-text p {
+    text-align:center;
+}   
 
-.hero-text h2 {
-    font-family: 'Lora', serif;
-    font-size: 1.25rem; /* Adjusted for harmony */
-    margin-bottom: 1.5rem;
-    font-weight: 400;
-}
 
-.hero-text p {
-    font-family: 'Georgia', serif;
-    font-size: 0.95rem;
-    max-width: 600px;
-    margin: 0 auto;
+.world-person{
+    margin:6rem 0;
 }
 
 /* Carousel Styles */
@@ -152,191 +198,236 @@ header {
     width: 100%;
     overflow: hidden;
     position: relative;
-    height: 200px; /* Match .carousel-item height */
-    margin-bottom: 2rem;
+    height: 140px;
+    margin: var(--spacing-unit) 0;
 }
 
 .carousel-track {
     display: flex;
     transition: transform 0.5s ease;
-    justify-content: flex-start; /* Align items to the left */
-    gap: 4rem; /* Spacing between items */
+    gap: 2rem;
 }
 
 .carousel-item {
     flex: 0 0 auto;
-    width: 170px;
-    height: 170px;
-    border-radius: 100%;
-    /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); */
+    width: 140px;
+    height: 140px;
+    transition: transform 0.5s ease;
 }
 
-.carousel-track-1, .carousel-track-3 {
-    justify-content: flex-start; /* Ensure both tracks align left */
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-.carousel-track-2 {
-    justify-content: flex-end; /* Ensure both tracks align left */
+.carousel-item:hover {
+    transform: scale(0.8);
 }
 
-/* Section Content Styles */
-.section-content {
-    max-width: 1200px;
-    margin: 7rem auto;
-    padding: 2rem;
-    text-align: center;
+.carousel-track-1, .carousel-track-3, .carousel-track-5 {
+    justify-content: flex-start;
 }
 
-.section-content h5 {
-    font-family: 'Lora', serif;
-    font-size: 1.25rem;
-    margin-bottom: 8rem;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    font-weight: 400;
+.carousel-track-2, .carousel-track-4 {
+    justify-content: flex-end;
 }
 
 /* Work Section */
-#work {
-    padding: 4rem 2rem; /* Increased padding for more whitespace */
-    text-align: center;
+#work .section-content {
+    margin-bottom: var(--extra-section-spacing);
 }
 
-.category-title {
-    font-family: 'Lora', serif;
-    font-size: 1.1rem; /* Smaller, uppercase for chapter feel */
-    text-transform: uppercase;
-    letter-spacing: 0.1rem;
-    margin-bottom: 3rem; /* More space below headings */
-   /* color: var(--accent-color); /* Accent color for professionalism */
-    font-weight: 400;
+#work .work-grid {
+    margin-bottom: var(--spacing-unit);
 }
 
-.work-grid {
+
+.work-grid, .tool-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Wider cards for emphasis */
-    gap: 3rem; /* More space between cards */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-.work-item {
-    text-align: center; /* Center text for clean look */
-    transition: transform 0.3s ease; /* Subtle hover animation */
+#work .tool-grid{
+    max-width: 800px;
+    margin-bottom: 4rem;
 }
 
-.work-item:hover {
-    transform: scale(1.05); /* Emphasize on hover */
+#work .tool-grid {
+    max-width: 800px;
+    margin-bottom: 4rem;
+}
+
+.work-item {
+    text-align: center;
+    transition: transform 0.3s ease;
 }
 
 .work-item img {
-    width: 200px; /* Fixed square for circles */
+    width: 200px;
     height: 200px;
     object-fit: cover;
-    border-radius: 50%; /* Circle (use 50% for perfect circles) */
-    margin-bottom: 1rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
-    transition: box-shadow 0.3s ease; /* Hover effect */
+    border-radius: 50%;
+    margin-bottom: var(--spacing-unit);
+    transition: transform 0.3s ease;
 }
 
 .work-item:hover img {
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15); /* Stronger shadow on hover */
-}
-
-.work-item h3 {
-    font-family: 'Lora', serif;
-    font-size: 1.25rem; /* Slightly smaller, more delicate */
-    margin-bottom: 0.5rem;
-    font-weight: 400;
-    transition: font-weight 0.3s ease; /* Hover effect */
-}
-
-/*
-.work-item:hover h3 {
-    font-weight: 700; 
-}*/
-
-.work-item p {
-    font-family: 'Georgia', serif;
-    font-size: 0.95rem; /* Match body text */
-    margin-bottom: 1rem;
-    opacity: 0.8; /* Subtle fade for descriptions */
-}
-
-.work-item .cta-button {
-    font-family: 'Georgia', serif;
-    font-size: 0.95rem; /* Consistent with body */
-    color: var(--accent-color);
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.work-item .cta-button:hover {
-    color: var(--text-color); /* Invert color on hover for professionalism */
-    text-decoration: underline;
+    transform: scale(1.1);
 }
 
 /* Services Section */
-#services .section-content h5 {
-    font-family: 'Lora', serif;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
+    gap: 2rem;
 }
 
 .service-item {
     text-align: left;
-    padding: 1.5rem;
+    padding: var(--spacing-unit);
 }
 
-.service-item h3 {
-    font-family: 'Lora', serif;
-    font-size: 1.25rem;
-    margin-bottom: 0.5rem;
-    font-weight: 400;
+/* Flip Card Styles */
+.constellation-container, .tool-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    justify-content: center;
+    margin-top: var(--spacing-unit);
 }
 
-.service-item p {
+.star-flip-card {
+    width: 250px;
+    height: 250px;
+    perspective: 1000px;
+}
+
+
+#work .tool-grid .star-flip-card, 
+#mystory .constellation-container .star-flip-card {
+    width: 100px;
+    height: 100px;
+}
+
+#work .tool-grid .star-flip-card .flip-card-inner,
+#mystory .constellation-container .star-flip-card .flip-card-inner  {
+    width: 100%;
+    height: 100%;
+}
+
+#work .tool-grid .star-flip-card .flip-card-front,
+#work .tool-grid .star-flip-card .flip-card-back,
+#mystory .constellation-container .star-flip-card .flip-card-front,
+#mystory .constellation-container .star-flip-card .flip-card-back{
+    width: 100%;
+    height: 100%;
+    font-size: 0.8rem;
+    padding:0;
+    background-color:rgb(95, 117, 113);
+}
+
+#work .tool-grid .star-flip-card .flip-card-front h5,
+#mystory .constellation-container .star-flip-card .flip-card-front h5{
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+#work .tool-grid .star-flip-card .flip-card-back p, 
+#mystory .constellation-container .star-flip-card .flip-card-front p{
+    font-size: .9rem;
+    margin: 0;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.star-flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.flip-card-front {
+    background: var(--card-bg-color);
+}
+
+.flip-card-front h5{
+    color: white;
+}
+
+.star-flip-card .flip-card-back h3{
+    color: white;
+}
+
+
+.flip-card-back {
+    background: var(--card-bg-color);
+    color: white;
+    transform: rotateY(180deg);
+    flex-direction: column;
+    padding: var(--spacing-unit);
+    text-align: center;
+}
+
+.card-img {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.flip-card-back p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* CTA Button */
+.cta-button {
     font-family: 'Georgia', serif;
     font-size: 0.95rem;
+    color: var(--accent-color);
+    text-decoration: none;
+    margin-top: 1rem;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
 }
 
-/* About Section */
-#mystory .about-image {
-    margin: 2rem auto;
-    max-width: 400px;
-}
-
-#mystory .about-image img {
-    width: 100%;
-    height: auto;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-#mystory .about-content {
-    text-align: left;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-#mystory .about-text p {
-    font-family: 'Georgia', serif;
-    margin-bottom: 1.5rem;
+.cta-button:hover {
+    text-decoration: underline;
 }
 
 /* Contact Section */
 .contact-links {
-    margin-top: 2rem;
+    margin-top: var(--spacing-unit);
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.75rem;
 }
 
 .contact-links a {
@@ -354,12 +445,11 @@ header {
 /* Footer */
 footer {
     background: var(--nav-bg-color);
-    padding: 2rem;
+    padding: var(--spacing-unit);
     text-align: center;
 }
 
 .footer-content p {
-    font-family: 'Georgia', serif;
     font-size: 0.9rem;
     margin-bottom: 1rem;
 }
@@ -384,77 +474,19 @@ footer {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+
+    p {
+        max-width: none;
+        padding: 0 1rem; /* Add some padding to the sides for better readability */
+    }
+ 
+    .section-content {
+        max-width: none;
+        padding: 0 1rem; /* Ensure sections take up more space */
+    }
+    
     body {
-        font-size: 0.9rem; /* Slightly smaller base */
-    }
-
-    header {
-        padding: 2rem 3rem;
-    }
-
-    .logo a {
-        font-size: 1.5rem;
-    }
-
-    .nav-link {
-        font-size: 1rem;
-    }
-
-    #intro .hero-text h1 {
-        font-size: 1.8rem;
-    }
-
-    #intro .hero-text h2 {
-        font-size: 1.1rem;
-    }
-
-    #intro .hero-text p {
         font-size: 0.9rem;
-    }
-
-    .section-content h5 {
-        font-size: 1rem;
-        margin-bottom: 4rem;
-    }
-
-    .work-grid {
-        grid-template-columns: 1fr; /* Stack vertically on mobile */
-        gap: 2rem; /* Less gap for compact view */
-    }
-
-    .work-item img {
-        width: 150px; /* Smaller circles on mobile */
-        height: 150px;
-    }
-
-    .category-title {
-        font-size: 1rem;
-    }
-
-    .work-item h3 {
-        font-size: 1.1rem;
-    }
-
-    .work-item p {
-        font-size: 0.9rem;
-    }
-
-    #work {
-        padding: 2rem 1rem; /* Adjust padding for mobile */
-    }
-
-    .service-item h3 {
-        font-size: 1.1rem;
-    }
-
-    .service-item p {
-        font-size: 0.9rem;
-    }
-}
-
-@media (max-width: 480px) {
-    body {
-        font-size: 0.85rem; /* Even smaller for mobile */
     }
 
     header {
@@ -462,58 +494,78 @@ footer {
     }
 
     .logo a {
-        font-size: 1.25rem;
+        font-size: 1.5rem;
     }
 
     .nav-link {
         font-size: 0.9rem;
     }
 
-    #intro .hero-text h1 {
-        font-size: 1.5rem;
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.25rem; }
+    h3 { font-size: 1.1rem; }
+    h5 { font-size: 0.9rem; }
+
+    .work-item img {
+        width: 150px;
+        height: 150px;
     }
 
-    #intro .hero-text h2 {
-        font-size: 1rem;
+    .work-grid, .services-grid, .tool-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
     }
 
-    #intro .hero-text p {
+    #work .tool-grid .star-flip-card {
+        width: 80px;
+        height: 80px;
+    }
+
+    #work .tool-grid .star-flip-card .flip-card-front h5 {
+        font-size: 0.8rem;
+    }
+
+    #work .tool-grid .star-flip-card .flip-card-back p {
+        font-size: 0.65rem;
+    }
+}
+
+@media (max-width: 480px) {
+
+    
+    body {
         font-size: 0.85rem;
     }
 
-    .section-content h5 {
-        font-size: 0.9rem;
-        margin-bottom: 2rem;
+    header {
+        padding: 1rem 1.5rem;
     }
 
-    .work-item h3 {
-        font-size: 1rem;
-    }
-
-    .work-item p {
-        font-size: 0.85rem;
-    }
-
-    .service-item h3 {
-        font-size: 1rem;
-    }
-
-    .service-item p {
-        font-size: 0.85rem;
+    .logo a {
+        font-size: 1.25rem;
     }
 
     .carousel {
-        height: 10px; /* Match .carousel-item height */
-        margin-bottom: 2rem;
+        height: 100px;
     }
-    
-    .carousel-track {
-        transition: transform 0.5s ease;
-        gap: 4rem; /* Spacing between items */
-    }
-    
+
     .carousel-item {
-        width: 20px;
-        height: 20px;
+        width: 80px;
+        height: 80px;
+    }
+    #work .tool-grid .star-flip-card {
+        width: 60px;
+        height: 60px;
+    }
+
+    #work .tool-grid .star-flip-card .flip-card-front h5 {
+        font-size: 0.7rem;
+    }
+
+    #work .tool-grid .star-flip-card .flip-card-back p {
+        font-size: 0.6rem;
+    }
+    #world{
+        margin-top: 20rem;
     }
 }
