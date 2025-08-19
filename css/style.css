@@ -27,6 +27,10 @@ body, html {
     letter-spacing: 0.05rem;
 }
 
+.nav-link.active {
+    color: var(--accent-color);
+}
+
 /*Custom Pointer Styles
 a, button, [role="button"] {
     cursor: url("../img/pointer.png") 16 16, pointer; 
@@ -148,6 +152,7 @@ section {
     margin: 0 auto;
     text-align: center;
     padding: var(--spacing-unit);
+  
 }
 
 /* Intro and World Sections */
@@ -398,7 +403,7 @@ section {
     width: 100%;
     height: 100%;
     object-fit: cover;
-}
+} 
 
 .flip-card-back p {
     margin: 0;
@@ -422,6 +427,11 @@ section {
 }
 
 /* Contact Section */
+
+#contact{
+    padding-top:10rem;
+}
+
 .contact-links {
     margin-top: var(--spacing-unit);
     display: flex;
