@@ -1,4 +1,18 @@
+
+
+
 document.addEventListener('DOMContentLoaded', () => {
+
+    // Assuming GSAP is already included
+gsap.to(".soundscape-toggle", {
+    scale: 1.05,
+    repeat: -1,
+    yoyo: true,
+    duration: 1,
+    ease: "power1.inOut"
+});
+ 
+
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
 
@@ -34,6 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
 
     const carousels = [
         { track: document.querySelector('.carousel-track-1'), speed: 0.2, direction: -1 },
@@ -96,8 +111,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 ease: 'power2.out',
                 scrollTrigger: {
                     trigger: section,
-                    start: 'top 80%',
-                    end: 'bottom 20%',
+                    start: 'top 95%',
+                    end: 'bottom 10%',
                     toggleActions: 'play none none reverse'
                 }
             });

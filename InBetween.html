@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Case study for In Between project by Sarah Seiyeun Kim.">
+    <title>In Between - Sarah Seiyeun Kim</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Georgia&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="./img/blue/1.png">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html">Sarah Seiyeun Kim</a>
+        </div>
+        <button class="hamburger" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav class="nav-menu">
+            <a href="index.html#world" class="nav-link">Strange New World</a>
+            <a href="work.html" class="nav-link">Our Craft</a>
+            <a href="services.html" class="nav-link">Services</a>
+            <a href="mystory.html" class="nav-link">My Story</a>
+            <a href="contact.html" class="nav-link">Connect</a>
+        </nav>
+    </header>
+
+    <section id="project">
+        <div class="section-content fade-in-section">
+            <h1>In Between</h1>
+            <div class="project-image">
+                <iframe 
+                    width="100%" 
+                    height="400" 
+                    src="https://www.youtube.com/embed/Rm5sBeZrRes" 
+                    frameborder="0" 
+                    allow="autoplay; encrypted-media" 
+                    allowfullscreen
+                    title="In Between Documentary"
+                    onload="console.log('YouTube iframe loaded for In Between')"
+                    onerror="console.error('Error loading YouTube iframe')"
+                ></iframe>
+            </div>
+            <div class="project-description">
+                <p>In Between, 2024, is an experimental short documentary film situated at the threshold of the known and unknown. Taking segments of New York City's streets and cityways through vehicles of transportation, the film captures the fleetingness of truth and understanding, a sensation of losing what we once held as certain. Kim renders the perpetual death and rebirth of the living experience: shedding preconceived notions to weave new ones, only to be swallowed again by the vast unknown where connections form and dissolve.</p>
+                <p>The film questions the malleability of self. If identity emerges from environment and others’ perceptions, how can we understand truth. Through a first-person lens, In Between suspends viewers at the crossroads of dreaming and waking, stitching together moments Kim documented across New York City.</p>
+                <p>When did you realize all you knew was but a flicker of truth? This work surrenders to this question, embracing the ambiguity—a paradox between anxiety and anesthesia. How does one move forward, purposeful, in perpetual flux? In Between offers no answers, only the space to linger in the abyss.</p>
+            </div>
+            <a href="work.html" class="cta-button">Back to Our Craft</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Sarah Seiyeun Kim</p>
+            <nav>
+                <a href="index.html#world">Strange New World</a>
+                <a href="work.html">Our Craft</a>
+                <a href="services.html">Services</a>
+                <a href="mystory.html">My Story</a>
+                <a href="contact.html">Connect</a>
+            </nav>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
