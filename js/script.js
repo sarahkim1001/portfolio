@@ -3,6 +3,12 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+    document.addEventListener('mousemove', (e) => {
+        const cursor = document.querySelector('.cursor');
+        cursor.style.left = `${e.clientX}px`;
+        cursor.style.top = `${e.clientY}px`;
+      });
+
     // Assuming GSAP is already included
 gsap.to(".soundscape-toggle", {
     scale: 1.05,
