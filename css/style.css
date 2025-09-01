@@ -170,8 +170,8 @@ section {
 }
 
 .gallery-item img {
-    max-width: 260px;
-    max-height: 260px;
+    max-width:160px;
+    max-height: 160px;
     width: auto;
     height: auto;
     object-fit: contain;
@@ -272,9 +272,7 @@ footer {
 }
 
 /* About Page Section */
-#mystory {
-    padding: var(--spacing-unit) 2rem;
-}
+
 
 .mystory-text {
     display: grid;
@@ -384,7 +382,7 @@ img:hover {
 }
 
 .mystory-text .content-right img {
-    max-height: 500px;
+    max-height: 400px;
 }
 
 /* Responsive Design */
@@ -515,8 +513,8 @@ img:hover {
         text-align: center;
     }
     .gallery-item img {
-        max-width: 130px;
-        max-height: 130px;
+        max-width: 90px;
+        max-height: 90px;
     }
 }
 
