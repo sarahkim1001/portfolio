@@ -3,8 +3,8 @@
 
 /* Root Variables */
 :root {
-    --background-color: white;
-    --text-color: #191919;
+    --background-color: rgb(255, 255, 255);
+    --text-color: #000000;
     --accent-color: #818181;
     --nav-bg-color: rgb(244, 244, 244);
     --spacing-unit: 2rem;
@@ -42,7 +42,7 @@ h4 {
     font-weight: 400;
 }
 
-h1 { font-size: 2.5rem; letter-spacing: -0.02rem; }
+h1 { font-size: 2.1rem; letter-spacing: -0.02rem; }
 h2 { font-size: 1.75rem; }
 h3 { font-size: 1.4rem; }
 h4 { font-size: 1.2rem; }
@@ -170,8 +170,8 @@ section {
 }
 
 .gallery-item img {
-    max-width: 160px;
-    max-height: 160px;
+    max-width: 260px;
+    max-height: 260px;
     width: auto;
     height: auto;
     object-fit: contain;
@@ -514,10 +514,15 @@ img:hover {
         max-width: 250px;
         text-align: center;
     }
+    .gallery-item img {
+        max-width: 130px;
+        max-height: 130px;
+    }
 }
 
 
 @media (max-width: 480px) {
+
     body {
         font-size: 0.9rem;
     }
@@ -529,6 +534,7 @@ img:hover {
     .logo a {
         font-size: 1.2rem;
     }
+
 
     .work-content h3 {
         font-size: 1.1rem;
